@@ -18,3 +18,16 @@ Make sure you have GCC installed and run the following:
 
     make
     sudo make install
+
+Check that `$PATH` is set up properly. This should show `/usr/local/bin/dropbox`:
+
+    which dropbox
+
+Restart Dropbox:
+
+    dropbox stop
+    dropbox start
+
+## Uninstall
+
+    sudo make uninstall

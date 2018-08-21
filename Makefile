@@ -11,7 +11,8 @@ clean:
 
 install: libdropbox_ext4.so
 	install $^ $(INSTALL_DIR)/lib/ && \
-	echo -e "#!/bin/bash\n\nLD_PRELOAD=$(INSTALL_DIR)/lib/$^ exec /usr/bin/dropbox \"\$$@\"" > $(INSTALL_DIR)/bin/dropbox
+	echo -e "#!/bin/bash\n\nLD_PRELOAD=$(INSTALL_DIR)/lib/$^ exec /usr/bin/dropbox \"\$$@\"" > $(INSTALL_DIR)/bin/dropbox && \
+	chmod 0755 $(INSTALL_DIR)/bin/dropbox
 
 uninstall:
 	rm -f $(INSTALL_DIR)/bin/dropbox && \

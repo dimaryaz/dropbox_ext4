@@ -37,14 +37,14 @@ LD_PRELOAD=%s exec /usr/bin/dropbox "$@"
 
 def main():
     # Install the library.
-    os.makedirs(os.path.join(INSTALL_PATH, 'bin'), exist_ok=True)
+    os.makedirs(os.path.join(INSTALL_PATH, 'lib'), exist_ok=True)
 
     with open(LIBRARY_PATH, 'wb') as fd:
         fd.write(gzip.decompress(base64.b85decode(ENCODED_LIB_CONTENTS)))
         os.fchmod(fd.fileno(), 0o755)
 
     # Install the wrapper script.
-    os.makedirs(os.path.join(INSTALL_PATH, 'lib'), exist_ok=True)
+    os.makedirs(os.path.join(INSTALL_PATH, 'bin'), exist_ok=True)
 
     with open(SCRIPT_PATH, 'w') as fd:
         fd.write(DROPBOX_WRAPPER_CONTENTS)

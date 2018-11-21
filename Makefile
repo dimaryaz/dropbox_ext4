@@ -11,8 +11,7 @@ clean:
 
 install: libdropbox_ext4.so
 	install $^ $(INSTALL_DIR)/lib/ && \
-	cp dropbox $(INSTALL_DIR)/bin/dropbox && \
-	chmod 0755 $(INSTALL_DIR)/bin/dropbox
+	install dropbox $(INSTALL_DIR)/bin/dropbox
 
 uninstall:
 	rm -f $(INSTALL_DIR)/bin/dropbox && \

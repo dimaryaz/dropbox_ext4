@@ -1,0 +1,5 @@
+#!/bin/bash
+
+Dir=$(dirname "$0")
+
+LD_PRELOAD="$Dir"/../lib/libdropbox_ext4.so exec /usr/bin/dropbox "$@"
